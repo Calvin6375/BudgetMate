@@ -1,4 +1,4 @@
-﻿package com.budgetmate.utils;
+package com.budgetmate.utils;
 
 import java.text.DecimalFormat;
 

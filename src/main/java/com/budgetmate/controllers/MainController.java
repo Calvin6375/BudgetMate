@@ -1,4 +1,4 @@
-﻿package com.budgetmate.controllers;
+package com.budgetmate.controllers;
 
 import com.budgetmate.models.Budget;
 import com.budgetmate.models.Category;
@@ -113,10 +113,10 @@ public class MainController {
             salary.setDeductions(deductions);
 
             double netSalary = salary.getNetSalary();
-            netSalaryLabel.setText("Net Salary: \$" + Calculator.formatMoney(netSalary));
+            netSalaryLabel.setText("Net Salary: $" + Calculator.formatMoney(netSalary));
             netSalaryLabel.setStyle("-fx-font-size: 18; -fx-text-fill: #007BFF; -fx-font-weight: bold;");
             
-            netSalaryLabelBudget.setText("Net Salary: \$" + Calculator.formatMoney(netSalary));
+            netSalaryLabelBudget.setText("Net Salary: $" + Calculator.formatMoney(netSalary));
 
             updateBudgetLabels();
             statusLabel.setText("Salary calculated successfully!");
@@ -218,15 +218,15 @@ public class MainController {
         double totalAllocated = budget.getTotalAllocated();
         double remainingBalance = BudgetService.calculateRemainingBalance(salary, budget);
 
-        netSalaryLabelBudget.setText("Net Salary: \$" + Calculator.formatMoney(netSalary));
-        totalAllocatedLabel.setText("Total Allocated: \$" + Calculator.formatMoney(totalAllocated));
+        netSalaryLabelBudget.setText("Net Salary: $" + Calculator.formatMoney(netSalary));
+        totalAllocatedLabel.setText("Total Allocated: $" + Calculator.formatMoney(totalAllocated));
 
         if (remainingBalance < 0) {
             remainingBalanceLabel.setTextFill(Color.RED);
-            remainingBalanceLabel.setText("Remaining Balance: -\$" + Calculator.formatMoney(Math.abs(remainingBalance)) + " (EXCEEDED)");
+            remainingBalanceLabel.setText("Remaining Balance: -$" + Calculator.formatMoney(Math.abs(remainingBalance)) + " (EXCEEDED)");
         } else {
             remainingBalanceLabel.setTextFill(Color.GREEN);
-            remainingBalanceLabel.setText("Remaining Balance: \$" + Calculator.formatMoney(remainingBalance));
+            remainingBalanceLabel.setText("Remaining Balance: $" + Calculator.formatMoney(remainingBalance));
         }
     }
 
@@ -242,9 +242,9 @@ public class MainController {
                 taxField.setText(String.valueOf(salary.getTax()));
                 deductionsField.setText(String.valueOf(salary.getDeductions()));
                 double netSalary = salary.getNetSalary();
-                netSalaryLabel.setText("Net Salary: \$" + Calculator.formatMoney(netSalary));
+                netSalaryLabel.setText("Net Salary: $" + Calculator.formatMoney(netSalary));
                 netSalaryLabel.setStyle("-fx-font-size: 18; -fx-text-fill: #007BFF; -fx-font-weight: bold;");
-                netSalaryLabelBudget.setText("Net Salary: \$" + Calculator.formatMoney(netSalary));
+                netSalaryLabelBudget.setText("Net Salary: $" + Calculator.formatMoney(netSalary));
             }
 
             // Load budget

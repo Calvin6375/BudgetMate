@@ -1,4 +1,4 @@
-﻿package com.budgetmate.models;
+package com.budgetmate.models;
 
 /**
  * Represents a budget category with a name and allocated amount.

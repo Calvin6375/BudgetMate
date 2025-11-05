@@ -1,4 +1,4 @@
-﻿package com.budgetmate;
+package com.budgetmate;
 
 import com.budgetmate.controllers.MainController;
 import javafx.application.Application;
@@ -20,9 +20,6 @@ public class Main extends Application {
         // Load the main FXML file
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/ui/main.fxml"));
         Parent root = loader.load();
-
-        // Get controller
-        MainController mainController = loader.getController();
 
         // Create the scene with the root node
         Scene scene = new Scene(root, 900, 750);

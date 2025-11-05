@@ -1,4 +1,4 @@
-﻿package com.budgetmate.models;
+package com.budgetmate.models;
 
 /**
  * Represents a salary calculation with gross amount, tax, and deductions.

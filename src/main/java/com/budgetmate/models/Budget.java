@@ -1,4 +1,4 @@
-﻿package com.budgetmate.models;
+package com.budgetmate.models;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-﻿package com.budgetmate;
+package com.budgetmate;
 
 import com.budgetmate.models.Budget;
 import com.budgetmate.models.Category;
