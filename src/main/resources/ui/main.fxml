@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.budgetmate.controllers.MainController">
+    <top>
+        <VBox style="-fx-background-color: #007BFF; -fx-padding: 15;">
+            <Label text="BudgetMate - Salary &amp; Budget Manager" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE" style="-fx-font-size: 12;">
+            <!-- Salary Tab -->
+            <Tab text="Salary Calculator">
+                <VBox spacing="20" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+                    <Label text="Salary Information" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #007BFF;"/>
+
+                    <!-- Gross Salary -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Gross Salary:" style="-fx-font-size: 12; -fx-min-width: 120;"/>
+                        <TextField fx:id="grossSalaryField" promptText="Enter gross salary" style="-fx-font-size: 12; -fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+                        <Label text="\$" style="-fx-font-size: 12;"/>
+                    </HBox>
+
+                    <!-- Tax -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Tax:" style="-fx-font-size: 12; -fx-min-width: 120;"/>
+                        <TextField fx:id="taxField" promptText="Enter tax amount" style="-fx-font-size: 12; -fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+                        <Label text="\$" style="-fx-font-size: 12;"/>
+                    </HBox>
+
+                    <!-- Deductions -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Deductions:" style="-fx-font-size: 12; -fx-min-width: 120;"/>
+                        <TextField fx:id="deductionsField" promptText="Enter deductions" style="-fx-font-size: 12; -fx-padding: 8;" HBox.hgrow="ALWAYS"/>
+                        <Label text="\$" style="-fx-font-size: 12;"/>
+                    </HBox>
+
+                    <!-- Net Salary Result -->
+                    <Label fx:id="netSalaryLabel" text="Net Salary: \.00" style="-fx-font-size: 18; -fx-text-fill: #007BFF; -fx-font-weight: bold;"/>
+
+                    <!-- Buttons -->
+                    <HBox spacing="10">
+                        <Button text="Calculate Salary" fx:id="calculateBtn" style="-fx-font-size: 12; -fx-padding: 10; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-cursor: hand;" HBox.hgrow="ALWAYS"/>
+                        <Button text="Save Salary" fx:id="saveSalaryBtn" style="-fx-font-size: 12; -fx-padding: 10; -fx-background-color: #28a745; -fx-text-fill: white; -fx-cursor: hand;" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <!-- Status Label -->
+                    <Label fx:id="statusLabel" text="" style="-fx-font-size: 12; -fx-text-fill: #666;"/>
+                </VBox>
+            </Tab>
+
+            <!-- Budget Tab -->
+            <Tab text="Budget Manager">
+                <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+                    <!-- Net Salary Display -->
+                    <Label fx:id="netSalaryLabelBudget" text="Net Salary: \.00" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #007BFF;"/>
+
+                    <!-- Add Category Section -->
+                    <VBox spacing="10" style="-fx-border-color: #ddd; -fx-border-radius: 5; -fx-padding: 15; -fx-background-color: white;">
+                        <Label text="Add New Category" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #007BFF;"/>
+                        
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Category Name:" style="-fx-font-size: 11; -fx-min-width: 110;"/>
+                            <TextField fx:id="categoryNameField" promptText="e.g., Rent, Food, Transport" style="-fx-font-size: 11; -fx-padding: 6;" HBox.hgrow="ALWAYS"/>
+                        </HBox>
+
+                        <HBox spacing="10" alignment="CENTER_LEFT">
+                            <Label text="Amount:" style="-fx-font-size: 11; -fx-min-width: 110;"/>
+                            <TextField fx:id="categoryAmountField" promptText="Enter amount" style="-fx-font-size: 11; -fx-padding: 6;" HBox.hgrow="ALWAYS"/>
+                            <Label text="\$" style="-fx-font-size: 11;"/>
+                        </HBox>
+
+                        <Button text="Add Category" fx:id="addCategoryBtn" style="-fx-font-size: 11; -fx-padding: 8; -fx-background-color: #007BFF; -fx-text-fill: white; -fx-cursor: hand;"/>
+                    </VBox>
+
+                    <!-- Categories Table -->
+                    <TableView fx:id="categoriesTable" prefHeight="250" style="-fx-font-size: 11;">
+                        <columns>
+                            <TableColumn fx:id="categoryNameColumn" text="Category Name" prefWidth="200"/>
+                            <TableColumn fx:id="categoryAmountColumn" text="Amount (\$)" prefWidth="150"/>
+                        </columns>
+                    </TableView>
+
+                    <!-- Remove Button -->
+                    <Button text="Remove Selected Category" fx:id="removeCategoryBtn" style="-fx-font-size: 11; -fx-padding: 8; -fx-background-color: #dc3545; -fx-text-fill: white; -fx-cursor: hand;"/>
+
+                    <!-- Summary Section -->
+                    <VBox spacing="10" style="-fx-border-color: #ddd; -fx-border-radius: 5; -fx-padding: 15; -fx-background-color: white;">
+                        <Label fx:id="totalAllocatedLabel" text="Total Allocated: \.00" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #666;"/>
+                        <Label fx:id="remainingBalanceLabel" text="Remaining Balance: \.00" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #28a745;"/>
+                    </VBox>
+
+                    <!-- Action Buttons -->
+                    <HBox spacing="10">
+                        <Button text="Save Budget" fx:id="saveBudgetBtn" style="-fx-font-size: 11; -fx-padding: 8; -fx-background-color: #28a745; -fx-text-fill: white; -fx-cursor: hand;" HBox.hgrow="ALWAYS"/>
+                    </HBox>
+
+                    <!-- Status Label -->
+                    <Label fx:id="statusLabelBudget" text="" style="-fx-font-size: 11; -fx-text-fill: #666;"/>
+                </VBox>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

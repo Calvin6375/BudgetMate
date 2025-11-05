@@ -1,0 +1,25 @@
+﻿# Gradle
+.gradle/
+build/
+gradle/
+gradlew
+gradlew.bat
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.class
+*.jar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime
+budget_data/
+*.log
+
+# Local
+.env
+local.properties
