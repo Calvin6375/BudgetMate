@@ -9,6 +9,14 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(ProcessResources) {
+    filteringCharset = 'UTF-8'
+}
+
 javafx {
     version = '21.0.1'
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.graphics']
